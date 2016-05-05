@@ -18,6 +18,7 @@ end
 DataMapper.finalize
 
 
+#index
 
 get '/locations' do
 	@location = Location.all
@@ -25,18 +26,56 @@ get '/locations' do
 end 
 
 
+#new
+
 get '/locations/new' do
 	@location = Location.new
 	slim :new_location	
 end 
+
+#edit
+
 
 get 'locations/:id/edit' do
 	@location = Location.get(params[:id])
 	slim :edit_location
 end
 
+#show
+
 get 'locations/:id/' do
-	@location = Location.list
-	slim :edit_location
+	@location = Location.get(params[:id])
+	slim :show_location
 end
+
+
+
+#create
+
+post '/locations' do
+	location= Location.create(params[:location])
+	redirect to("/locations/#{location.id}")
+end
+
+
+#update
+
+put '/location/:id' do
+	location = Location.get(params[:id])
+	location.update(params[:location])
+	redirect to ('/locations/#{location.id}')
+
+end
+
+
+#destroy
+
+	delete 'location/:id' do
+	Location.get(params[:id]).destroy
+	redirect to ('/artists')
+
+end
+
+
+
 
