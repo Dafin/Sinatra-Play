@@ -30,7 +30,13 @@ get '/locations/new' do
 	slim :new_location	
 end 
 
-get '/edit' do
-	...
-
+get 'locations/:id/edit' do
+	@location = Location.get(params[:id])
+	slim :edit_location
 end
+
+get 'locations/:id/' do
+	@location = Location.list
+	slim :edit_location
+end
+
