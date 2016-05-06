@@ -1,0 +1,8 @@
+h1 Locations
+a href="/location/new" Create a new location
+- if @location.any?
+    ul#location
+        - @location.each do |location|
+            li <a href="/location/#{location.id}">#{location.stage_name}</a>
+- else
+    p No location have been created yet!

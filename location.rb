@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'dm-migrations'
 
+
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
 
 class Location
@@ -53,7 +54,7 @@ end
 #create
 
 post '/locations' do
-	location= Location.create(params[:location])
+	location = Location.create(params[:location])
 	redirect to("/locations/#{location.id}")
 end
 
