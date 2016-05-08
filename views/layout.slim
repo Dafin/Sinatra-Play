@@ -1,12 +1,15 @@
 doctype html
 html lang="en"
 	head
-		title == @title || "Default Title"
+		title == @title || "The location app thingamajig"
 		meta charset="utf-8"
 		link rel="stylesheet" href="/style.css" 
 	body
 		header
-			h1 Hi there
+			h1 Welcome
 			== slim :nav
 		section
 		== yield
+		br
+		hr
+		h5 This is the footer

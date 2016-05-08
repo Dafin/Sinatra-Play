@@ -73,7 +73,7 @@ end
 
 	delete 'location/:id' do
 	Location.get(params[:id]).destroy
-	redirect to ('/artists')
+	redirect to ('/locations')
 
 end
 

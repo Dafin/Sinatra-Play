@@ -7,6 +7,10 @@ require 'erb'
 
 get '/' do
 	slim :home
-	erb :new_location
+	# erb :new_location
 end
 
+# post '/' do
+#   @task =  params[:location]
+#   slim :location
+# end
