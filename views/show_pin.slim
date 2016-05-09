@@ -1,0 +1,8 @@
+h1 = @pin.name
+/! p First Name: #{@artist.first_name}
+/! p Surname: #{@artist.surname}
+p <a href="/artists">back to artists index</a>
+p <a href="/artists/#{@artist.id}/edit">edit this artist</a>
+form action="/artists/#{@artist.id}" method="POST"
+    input type="hidden" name="_method" value="DELETE"
+    input type="submit" value="delete this artist"
