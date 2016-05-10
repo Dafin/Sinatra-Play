@@ -1,9 +1,19 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pry'
-require './pin.rb'
-require 'erb'
 
+require 'dm-core'
+require 'dm-migrations'
+
+DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+
+require './pin.rb'
+
+DataMapper.finalize
+
+DataMapper.auto_migrate!
+
+require 'erb'
 
 get '/' do
 	slim :home

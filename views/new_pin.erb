@@ -1,11 +1,21 @@
-<%= render 'nav.slim' %>
+
 
 <h1>Lets create a new pin now!</h1>
 <div>
 Today is <%= Time.now.strftime('%A') %>.
 <p>form for the input</p>
 
-<p>Another Paragraph</p>
+
+<form action="/pins" method="POST">
+Lat<input type="text" name="pin[lat]" /><br />
+Long<input type="text" name="pin[lng]" /><br />
+Blurb<textarea name="pin[blurb]"></textarea><br />
+Title<input type="text" name="pin[title]" /><br />
+
+
+
+<input type="submit" name="" value="Create Entry" />
+</form>
+
 
 </div>
-

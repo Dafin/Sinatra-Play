@@ -1,0 +1,12 @@
+* body {
+	background-color: #555555;
+
+}
+
+
+nav ul li {
+	display: inline;
+	padding: 5px;
+	text-align: center;
+	color: white;
+}
