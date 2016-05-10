@@ -4,11 +4,9 @@ class User
 
     property :id, Serial
 # unlike , AR, which gives id automatically 
-    property :title, String
-    property :lat, Float
-    property :lng, Float
-    property :blurb, Text
-    has  
+    property :firstname, String
+    property :surname, String
+    has n, :pins 
     
 end
 

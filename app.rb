@@ -8,7 +8,7 @@ require 'dm-migrations'
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
 
 require './pin.rb'
-require './user.rb'
+# require './user.rb'
 
 DataMapper.finalize
 
