@@ -8,10 +8,11 @@ require 'dm-migrations'
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
 
 require './pin.rb'
+require './user.rb'
 
 DataMapper.finalize
 
-DataMapper.auto_migrate!
+# DataMapper.auto_migrate!
 
 require 'erb'
 

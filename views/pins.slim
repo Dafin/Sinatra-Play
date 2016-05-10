@@ -1,8 +1,8 @@
 h1 Locations
 a href="/pin/new" Create a new pin
-- if @pin.any?
+- if @pins.any?
     ul#pin
-        - @pin.each do |pin|
-            li <a href="/pin/#{pin.id}">#{pin.name}</a>
+        - @pins.each do |pin|
+            li <a href="/pins/#{pin.id}">#{pin.title}</a>
 - else
     p No pins have been created yet!

@@ -2,15 +2,17 @@
 
 <h1>Lets create a new pin now!</h1>
 <div>
-Today is <%= Time.now.strftime('%A') %>.
-<p>form for the input</p>
+Today is <%= Time.now.strftime('%A') %>.<br/><hr/>
 
 
+<table>
 <form action="/pins" method="POST">
+Pin Title<input type="text" name="pin[title]" /><br />
+Blurb<textarea name="pin[blurb]"></textarea><br />
 Lat<input type="text" name="pin[lat]" /><br />
 Long<input type="text" name="pin[lng]" /><br />
-Blurb<textarea name="pin[blurb]"></textarea><br />
-Title<input type="text" name="pin[title]" /><br />
+</table>
+
 
 
 

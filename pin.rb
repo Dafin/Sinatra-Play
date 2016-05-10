@@ -8,6 +8,8 @@ class Pin
     property :lat, Float
     property :lng, Float
     property :blurb, Text
+
+    belongs_to :user
     
 end
 
@@ -15,7 +17,7 @@ end
 #index
 
 get '/pins' do
-	@pin = Pin.all
+	@pins = Pin.all
 	slim :pins	
 end 
 
@@ -43,7 +45,6 @@ get '/pins/:id' do
 end
 
 
-
 #create
 
 post '/pins' do
@@ -61,7 +62,6 @@ put '/pins/:id' do
 	redirect to ('/pins/#{pin.id}')
 
 end
-
 
 #destroy
 
