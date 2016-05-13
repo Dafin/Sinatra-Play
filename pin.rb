@@ -62,9 +62,10 @@ end
 #update
 
 put '/pins/:id' do
+	# binding.pry
 	pin = Pin.get(params[:id])
 	pin.update(params[:pin])
-	redirect to ('/pins/#{pin.id}')
+	redirect to("/pins/#{pin.id}")
 
 end
 
