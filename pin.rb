@@ -1,5 +1,8 @@
+# This is the DataMapper version
 require 'dm-core'
 require 'dm-migrations'
+
+
 
 
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
