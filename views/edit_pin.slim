@@ -2,3 +2,8 @@ h1 Edit Pin
 form method="POST" action= "/pins/#{@pin.id}"
     input type="hidden" name="_method" value="PUT"
     == slim :pin_form
+
+    
+form action="/pins/#{@pin.id}" method="POST"
+    input type="hidden" name="_method" value="DELETE"
+    input type="submit" value="delete this pin"

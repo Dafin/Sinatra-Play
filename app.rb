@@ -2,10 +2,10 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pry'
 
-require 'dm-core'
-require 'dm-migrations'
+# require 'dm-core'
+# require 'dm-migrations'
 
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+# DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
 
 require './pin.rb'
 # require './user.rb'

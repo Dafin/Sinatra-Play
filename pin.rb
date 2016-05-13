@@ -1,3 +1,8 @@
+require 'dm-core'
+require 'dm-migrations'
+
+
+DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
 
 class Pin
     include DataMapper::Resource
@@ -9,7 +14,7 @@ class Pin
     property :lng, Float
     property :blurb, Text
 
-    belongs_to :user
+    # belongs_to :user
     
 end
 
