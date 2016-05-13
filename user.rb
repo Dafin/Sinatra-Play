@@ -1,12 +1,13 @@
+require 'sinatra/activerecord'
 
-class User
-    include DataMapper::Resource
+class User  < ActiveRecord::Base
+    # include DataMapper::Resource
 
-    property :id, Serial
+    # property :id, Serial
 # unlike , AR, which gives id automatically 
-    property :firstname, String
-    property :surname, String
-    has n, :pins 
+    # property :firstname, String
+    # property :surname, String
+    has_many :pins 
     
 end
 
@@ -14,7 +15,7 @@ end
 #index
 
 get '/users' do
-	@users = user.all
+	@users = User.all
 	slim :users	
 end 
 
@@ -30,14 +31,14 @@ end
 
 
 get '/users/:id/edit' do
-	@user = user.get(params[:id])
+	@user = User.find(params[:id])
 	slim :edit_user	
 end
 
 #show
 
 get '/users/:id' do
-	@user = user.get(params[:id])
+	@user = User.find(params[:id])
 	slim :show_user
 end
 
@@ -45,25 +46,25 @@ end
 #create
 
 post '/users' do
-	user = user.create(params[:user])
+	user = User.create(params[:user])
 
-	redirect to("/users/#{user.id}")
+	redirect to("/users/#{User.id}")
 end
 
 
 #update
 
 put '/users/:id' do
-	user = user.get(params[:id])
-	user.update(params[:user])
-	redirect to ('/users/#{user.id}')
+	user = User.find(params[:id])
+	User.update(params[:user])
+	redirect to ('/users/#{User.id}')
 
 end
 
 #destroy
 
 	delete '/users/:id' do
-	user.get(params[:id]).destroy
+	User.find(params[:id]).destroy
 	redirect to ('/users')
 
 end

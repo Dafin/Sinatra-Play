@@ -1,23 +1,25 @@
 # This is the DataMapper version
-require 'dm-core'
-require 'dm-migrations'
+# require 'dm-core'
+# require 'dm-migrations'
+
+
+# DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+
+class Pin < ActiveRecord::Base
+
+    belongs_to :user
 
 
 
+    # include DataMapper::Resource
 
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
-
-class Pin
-    include DataMapper::Resource
-
-    property :id, Serial
+    # property :id, Serial
 # unlike , AR, which gives id automatically 
-    property :title, String
-    property :lat, Float
-    property :lng, Float
-    property :blurb, Text
+    # property :title, String
+    # property :lat, Float
+    # property :lng, Float
+    # property :blurb, Text
 
-    # belongs_to :user
     
 end
 
@@ -41,14 +43,16 @@ end
 
 
 get '/pins/:id/edit' do
-	@pin = Pin.get(params[:id])
+
+	# .get() below becomes .find() in AR
+	@pin = Pin.find(params[:id])
 	slim :edit_pin	
 end
 
 #show
 
 get '/pins/:id' do
-	@pin = Pin.get(params[:id])
+	@pin = Pin.find(params[:id])
 	slim :show_pin
 end
 
@@ -66,7 +70,7 @@ end
 
 put '/pins/:id' do
 	# binding.pry
-	pin = Pin.get(params[:id])
+	pin = Pin.find(params[:id])
 	pin.update(params[:pin])
 	redirect to("/pins/#{pin.id}")
 
@@ -75,7 +79,7 @@ end
 #destroy
 
 	delete '/pins/:id' do
-	Pin.get(params[:id]).destroy
+	Pin.find(params[:id]).destroy
 	redirect to ('/pins')
 
 end
